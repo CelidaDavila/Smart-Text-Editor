@@ -1,0 +1,3 @@
+C:\Qt\Tools\CMake_64\bin\cmake.exe -E rm -f CMakeFiles\text-editor-app.dir/objects.a
+C:\Qt\Tools\mingw1310_64\bin\ar.exe qc CMakeFiles\text-editor-app.dir/objects.a @CMakeFiles\text-editor-app.dir\objects1.rsp
+C:\Qt\Tools\mingw1310_64\bin\g++.exe -g -mwindows -Wl,--whole-archive CMakeFiles\text-editor-app.dir/objects.a -Wl,--no-whole-archive -o text-editor-app.exe -Wl,--out-implib,libtext-editor-app.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\text-editor-app.dir\linkLibs.rsp

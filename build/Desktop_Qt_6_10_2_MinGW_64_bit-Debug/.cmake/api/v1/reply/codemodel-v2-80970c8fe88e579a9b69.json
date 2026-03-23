@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-8d70a9e88818678fe503.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "text-editor-app",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "text-editor-app::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-text-editor-app-Debug-fdfeb49fa8b6eda71f51.json",
+					"name" : "text-editor-app",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "text-editor-app_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-text-editor-app_autogen-Debug-e246a3f91587fdc84f60.json",
+					"name" : "text-editor-app_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "text-editor-app_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-text-editor-app_autogen_timestamp_deps-Debug-76ba0f0643bf75337a8e.json",
+					"name" : "text-editor-app_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/Usuario/OneDrive/Documentos/Proyectos/Text-Editor/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug",
+		"source" : "C:/Users/Usuario/OneDrive/Documentos/Proyectos/Text-Editor"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}
