@@ -3,6 +3,8 @@
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QFontDialog>
+#include <QFileDialog>
+#include <QtPrintSupport/QPrinter>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -12,10 +14,12 @@ MainWindow::MainWindow(QWidget *parent)
 
     changeInterfaceLightMode();
 
+    //Files
     connect(ui->actionNew, &QAction::triggered,this,&MainWindow::newDocument);
     connect(ui->actionOpen, &QAction::triggered,this,&MainWindow::open);
     connect(ui->actionSave, &QAction::triggered,this,&MainWindow::save);
     connect(ui->actionSave_as, &QAction::triggered,this,&MainWindow::saveAs);
+    connect(ui->actionExport_as_PDF, &QAction::triggered,this,&MainWindow::exportAsPdf);
 
     //Font methods
     connect(ui->actionFont, &QAction::triggered,this,&MainWindow::selectFont);
@@ -23,6 +27,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->actionUnderline, &QAction::toggled,this,&MainWindow::setFontUnderline);
     connect(ui->actionItalic, &QAction::toggled,this,&MainWindow::setFontItalic);
 
+    //User interface changes
     connect(ui->actionPink, &QAction::triggered,this,&MainWindow::changeInterfacePink);
     connect(ui->actionBlue, &QAction::triggered,this,&MainWindow::changeInterfaceBlue);
     connect(ui->actionGreen, &QAction::triggered,this,&MainWindow::changeInterfaceGreen);
@@ -113,6 +118,28 @@ void MainWindow::saveAs()
     QString text = ui->textEdit->toPlainText();
     out << text;
     file.close();
+}
+
+void MainWindow::exportAsPdf()
+{
+    QString fileName = QFileDialog::getSaveFileName(
+        this,
+        "Exportar como PDF",
+        "",
+        "PDF Files (*.pdf)"
+        );
+
+    if (fileName.isEmpty())
+        return;
+
+    if (!fileName.endsWith(".pdf", Qt::CaseInsensitive))
+        fileName += ".pdf";
+
+    QPrinter printer(QPrinter::HighResolution);
+    printer.setOutputFormat(QPrinter::PdfFormat);
+    printer.setOutputFileName(fileName);
+
+    ui->textEdit->document()->print(&printer);
 }
 
 void MainWindow::selectFont()

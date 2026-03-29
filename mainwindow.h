@@ -21,6 +21,7 @@ private slots:
     void open();
     void save();
     void saveAs();
+    void exportAsPdf();
     void selectFont();
     void setFontBold(bool bold);
     void setFontUnderline(bool underline);

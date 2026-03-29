@@ -37,10 +37,11 @@
     <addaction name="actionOpen"/>
     <addaction name="actionSave"/>
     <addaction name="actionSave_as"/>
+    <addaction name="actionExport_as_PDF"/>
     <addaction name="actionExit"/>
     <addaction name="actionUndo"/>
-    <addaction name="actionRedo"/>
     <addaction name="separator"/>
+    <addaction name="actionRedo"/>
    </widget>
    <widget class="QMenu" name="menuEdit">
     <property name="title">
@@ -227,36 +228,70 @@
    </property>
   </action>
   <action name="actionPink">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/assets/Logos/PinkLogo.png</normaloff>:/icons/assets/Logos/PinkLogo.png</iconset>
+   </property>
    <property name="text">
     <string>Pink</string>
    </property>
   </action>
   <action name="actionBlue">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/assets/Logos/BlueLogo.png</normaloff>:/icons/assets/Logos/BlueLogo.png</iconset>
+   </property>
    <property name="text">
     <string>Blue</string>
    </property>
   </action>
   <action name="actionGreen">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/assets/Logos/GreenLogo.png</normaloff>:/icons/assets/Logos/GreenLogo.png</iconset>
+   </property>
    <property name="text">
     <string>Green</string>
    </property>
   </action>
   <action name="actionYellow">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/assets/Logos/YellowLogo.png</normaloff>:/icons/assets/Logos/YellowLogo.png</iconset>
+   </property>
    <property name="text">
     <string>Yellow</string>
    </property>
   </action>
   <action name="actionDark_mode">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/assets/Logos/DarkModeLogo.png</normaloff>:/icons/assets/Logos/DarkModeLogo.png</iconset>
+   </property>
    <property name="text">
     <string>Dark mode</string>
    </property>
   </action>
   <action name="actionLight_mode">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/assets/Logos/LightModeLogo.png</normaloff>:/icons/assets/Logos/LightModeLogo.png</iconset>
+   </property>
    <property name="text">
     <string>Light mode</string>
    </property>
   </action>
+  <action name="actionExport_as_PDF">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::DocumentOpen"/>
+   </property>
+   <property name="text">
+    <string>Export as PDF</string>
+   </property>
+  </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>
