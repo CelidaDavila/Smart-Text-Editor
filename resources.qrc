@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>assets/Logos/BlueLogo.png</file>
+        <file>assets/Logos/PinkLogo.png</file>
+        <file>assets/Logos/GreenLogo.png</file>
+        <file>assets/Logos/YellowLogo.png</file>
+        <file>assets/Logos/DarkModeLogo.png</file>
+        <file>assets/Logos/LightModeLogo.png</file>
+    </qresource>
+</RCC>
