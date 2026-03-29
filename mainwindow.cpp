@@ -5,6 +5,7 @@
 #include <QFontDialog>
 #include <QFileDialog>
 #include <QtPrintSupport/QPrinter>
+#include <QIcon>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
