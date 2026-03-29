@@ -25,6 +25,12 @@ private slots:
     void setFontBold(bool bold);
     void setFontUnderline(bool underline);
     void setFontItalic(bool italic);
+    void changeInterfacePink();
+    void changeInterfaceBlue();
+    void changeInterfaceGreen();
+    void changeInterfaceYellow();
+    void changeInterfaceDarkMode();
+    void changeInterfaceLightMode();
 
 private:
     Ui::MainWindow *ui;

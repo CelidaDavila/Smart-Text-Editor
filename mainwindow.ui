@@ -40,19 +40,31 @@
     <addaction name="actionExit"/>
     <addaction name="actionUndo"/>
     <addaction name="actionRedo"/>
-    <addaction name="actionFont"/>
-    <addaction name="actionItalic"/>
-    <addaction name="actionBold"/>
-    <addaction name="actionUnderline"/>
     <addaction name="separator"/>
    </widget>
    <widget class="QMenu" name="menuEdit">
     <property name="title">
      <string>Edit</string>
     </property>
+    <addaction name="actionBold"/>
+    <addaction name="actionItalic"/>
+    <addaction name="actionUnderline"/>
+    <addaction name="actionFont"/>
+   </widget>
+   <widget class="QMenu" name="menuChange_styles">
+    <property name="title">
+     <string>Change styles</string>
+    </property>
+    <addaction name="actionPink"/>
+    <addaction name="actionBlue"/>
+    <addaction name="actionGreen"/>
+    <addaction name="actionYellow"/>
+    <addaction name="actionDark_mode"/>
+    <addaction name="actionLight_mode"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
+   <addaction name="menuChange_styles"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QToolBar" name="toolBar">
@@ -68,6 +80,9 @@
    <addaction name="actionNew"/>
    <addaction name="actionOpen"/>
    <addaction name="actionSave"/>
+   <addaction name="actionBold"/>
+   <addaction name="actionItalic"/>
+   <addaction name="actionUnderline"/>
   </widget>
   <action name="actionNew">
    <property name="icon">
@@ -158,9 +173,51 @@
     <string>Ctrl+Y</string>
    </property>
   </action>
+  <action name="actionBold">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::FormatTextBold"/>
+   </property>
+   <property name="text">
+    <string>Bold</string>
+   </property>
+   <property name="toolTip">
+    <string>Bold</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+B</string>
+   </property>
+  </action>
+  <action name="actionItalic">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::FormatTextItalic"/>
+   </property>
+   <property name="text">
+    <string>Italic</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+I</string>
+   </property>
+  </action>
+  <action name="actionUnderline">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::FormatTextUnderline"/>
+   </property>
+   <property name="text">
+    <string>Underline</string>
+   </property>
+  </action>
   <action name="actionFont">
    <property name="icon">
-    <iconset theme="QIcon::ThemeIcon::InsertText"/>
+    <iconset theme="QIcon::ThemeIcon::ToolsCheckSpelling"/>
    </property>
    <property name="text">
     <string>Font</string>
@@ -169,34 +226,34 @@
     <string>Ctrl+F</string>
    </property>
   </action>
-  <action name="actionItalic">
-   <property name="icon">
-    <iconset theme="QIcon::ThemeIcon::FormatTextItalic"/>
-   </property>
+  <action name="actionPink">
    <property name="text">
-    <string>Italic</string>
-   </property>
-   <property name="toolTip">
-    <string>Italic font</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+I</string>
+    <string>Pink</string>
    </property>
   </action>
-  <action name="actionBold">
-   <property name="icon">
-    <iconset theme="QIcon::ThemeIcon::FormatTextBold"/>
-   </property>
+  <action name="actionBlue">
    <property name="text">
-    <string>Bold</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+B</string>
+    <string>Blue</string>
    </property>
   </action>
-  <action name="actionUnderline">
+  <action name="actionGreen">
    <property name="text">
-    <string>Underline</string>
+    <string>Green</string>
+   </property>
+  </action>
+  <action name="actionYellow">
+   <property name="text">
+    <string>Yellow</string>
+   </property>
+  </action>
+  <action name="actionDark_mode">
+   <property name="text">
+    <string>Dark mode</string>
+   </property>
+  </action>
+  <action name="actionLight_mode">
+   <property name="text">
+    <string>Light mode</string>
    </property>
   </action>
  </widget>
