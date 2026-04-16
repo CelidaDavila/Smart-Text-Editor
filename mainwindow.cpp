@@ -1,11 +1,14 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
-#include <QFileDialog>
 #include <QMessageBox>
 #include <QFontDialog>
-#include <QFileDialog>
 #include <QtPrintSupport/QPrinter>
 #include <QIcon>
+#include <QFileDialog>
+#include <QMessageBox>
+#include <QProcess>
+#include <QCoreApplication>
+#include <QFileInfo>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -35,6 +38,9 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->actionYellow, &QAction::triggered,this,&MainWindow::changeInterfaceYellow);
     connect(ui->actionDark_mode, &QAction::triggered,this,&MainWindow::changeInterfaceDarkMode);
     connect(ui->actionLight_mode,&QAction::triggered,this,&MainWindow::changeInterfaceLightMode);
+
+    //Tools
+    connect(ui->actionConvert_Image_to_Text, &QAction::triggered,this,&MainWindow::convert_Image_to_Text);
 }
 
 MainWindow::~MainWindow()
@@ -42,12 +48,14 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+//Create new document
 void MainWindow::newDocument()
 {
     m_currentFile.clear();
     ui->textEdit->setText(QString());
 }
 
+//Open a file
 void MainWindow::open()
 {
     QString stringFileName = QFileDialog::getOpenFileName(this,"Open File",
@@ -74,6 +82,7 @@ void MainWindow::open()
     file.close();
 }
 
+//"Save" a file
 void MainWindow::save()
 {
     QString stringFileName = "";
@@ -101,6 +110,7 @@ void MainWindow::save()
 
 }
 
+//"Save as" a File
 void MainWindow::saveAs()
 {
     QString stringFileName = QFileDialog::getSaveFileName(this,"Save as",
@@ -121,6 +131,7 @@ void MainWindow::saveAs()
     file.close();
 }
 
+//Export as Pdf
 void MainWindow::exportAsPdf()
 {
     QString fileName = QFileDialog::getSaveFileName(
@@ -143,6 +154,7 @@ void MainWindow::exportAsPdf()
     ui->textEdit->document()->print(&printer);
 }
 
+//Change font
 void MainWindow::selectFont()
 {
     bool fontSelected;
@@ -153,6 +165,7 @@ void MainWindow::selectFont()
     }
 }
 
+//Set font to bold
 void MainWindow::setFontBold(bool bold)
 {
     QTextCharFormat format;
@@ -160,6 +173,7 @@ void MainWindow::setFontBold(bool bold)
     ui->textEdit->mergeCurrentCharFormat(format);
 }
 
+//Set font to underline
 void MainWindow::setFontUnderline(bool underline)
 {
     QTextCharFormat format;
@@ -167,6 +181,7 @@ void MainWindow::setFontUnderline(bool underline)
     ui->textEdit->mergeCurrentCharFormat(format);
 }
 
+//Set font to italic
 void MainWindow::setFontItalic(bool italic)
 {
     QTextCharFormat format;
@@ -174,6 +189,7 @@ void MainWindow::setFontItalic(bool italic)
     ui->textEdit->mergeCurrentCharFormat(format);
 }
 
+//Change the UI to pink style
 void MainWindow::changeInterfacePink()
 {
     qApp->setStyleSheet(R"(
@@ -240,6 +256,7 @@ void MainWindow::changeInterfacePink()
     )");
 }
 
+//Change the UI to blue style
 void MainWindow::changeInterfaceBlue()
 {
     qApp->setStyleSheet(R"(
@@ -307,6 +324,7 @@ void MainWindow::changeInterfaceBlue()
     )");
 }
 
+//Change the UI to green style
 void MainWindow::changeInterfaceGreen()
 {
     qApp->setStyleSheet(R"(
@@ -374,6 +392,7 @@ void MainWindow::changeInterfaceGreen()
     )");
 }
 
+//Change the UI to yellow style
 void MainWindow::changeInterfaceYellow()
 {
     qApp->setStyleSheet(R"(
@@ -441,6 +460,7 @@ void MainWindow::changeInterfaceYellow()
     )");
 }
 
+//Change the UI to Dark mode style
 void MainWindow::changeInterfaceDarkMode()
 {
     qApp->setStyleSheet(R"(
@@ -507,6 +527,7 @@ void MainWindow::changeInterfaceDarkMode()
     )");
 }
 
+//Change the UI to Light mode style
 void MainWindow::changeInterfaceLightMode()
 {
     qApp->setStyleSheet(R"(
@@ -571,4 +592,50 @@ void MainWindow::changeInterfaceLightMode()
             color: #222222;
         }
     )");
+}
+
+/*Option to select an image an turn the text of the image to text using a python executable
+that works with tesseract*/
+void MainWindow::convert_Image_to_Text() {
+    QString rutaImagen = QFileDialog::getOpenFileName(
+        this,
+        "Select Image",
+        "",
+        "Images(*.png *.jpg *.jpeg *.bmp)"
+        );
+
+    if (rutaImagen.isEmpty()) {
+        return;
+    }
+
+    QString ocrExe = QCoreApplication::applicationDirPath() + "/dist/extractImages.exe";
+
+    if (!QFileInfo::exists(ocrExe)) {
+        QMessageBox::critical(this, "Error",
+                              "extractImages.exe could not be found in:\n" + ocrExe);
+        return;
+    }
+
+    QProcess process(this);
+    QStringList argumentos;
+    argumentos << rutaImagen;
+
+    process.start(ocrExe, argumentos);
+
+    if (!process.waitForStarted()) {
+        QMessageBox::critical(this, "Error", "Could not start extractImages.exe.");
+        return;
+    }
+
+    process.waitForFinished();
+
+    QString salida = process.readAllStandardOutput();
+    QString errores = process.readAllStandardError();
+
+    if (!errores.isEmpty()) {
+        QMessageBox::warning(this, "Error OCR", errores);
+        return;
+    }
+
+    ui->textEdit->setPlainText(salida);
 }

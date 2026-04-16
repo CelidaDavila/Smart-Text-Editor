@@ -42,3 +42,6 @@ release/
 # OS files
 .DS_Store
 Thumbs.db
+
+#VS Code config
+.vscode/

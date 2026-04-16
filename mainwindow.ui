@@ -63,9 +63,16 @@
     <addaction name="actionDark_mode"/>
     <addaction name="actionLight_mode"/>
    </widget>
+   <widget class="QMenu" name="menuTools">
+    <property name="title">
+     <string>Tools</string>
+    </property>
+    <addaction name="actionConvert_Image_to_Text"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
    <addaction name="menuChange_styles"/>
+   <addaction name="menuTools"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QToolBar" name="toolBar">
@@ -274,7 +281,7 @@
   </action>
   <action name="actionLight_mode">
    <property name="icon">
-    <iconset resource="resources.qrc">
+    <iconset>
      <normaloff>:/icons/assets/Logos/LightModeLogo.png</normaloff>:/icons/assets/Logos/LightModeLogo.png</iconset>
    </property>
    <property name="text">
@@ -287,6 +294,14 @@
    </property>
    <property name="text">
     <string>Export as PDF</string>
+   </property>
+  </action>
+  <action name="actionConvert_Image_to_Text">
+   <property name="icon">
+    <iconset theme="emblem-photos"/>
+   </property>
+   <property name="text">
+    <string>Convert Image to Text</string>
    </property>
   </action>
  </widget>

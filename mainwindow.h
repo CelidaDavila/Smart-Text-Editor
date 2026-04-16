@@ -32,6 +32,7 @@ private slots:
     void changeInterfaceYellow();
     void changeInterfaceDarkMode();
     void changeInterfaceLightMode();
+    void convert_Image_to_Text();
 
 private:
     Ui::MainWindow *ui;
