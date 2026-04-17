@@ -14,6 +14,31 @@ I plan to continue improving it by adding more features focused on academic use.
 
 \---
 
+Demo Gif
+
+
+
+<p align="center">
+
+&#x20; <img src="assets/Demo.gif" width="600"/>
+
+</p>
+
+
+
+Image Used
+
+
+
+<p align="center">
+
+&#x20; <img src="assets/ScreenText.jpeg" width="600"/>
+
+</p>
+
+
+---
+
 
 
 List of Features:
@@ -61,34 +86,7 @@ Tesseract OCR
 PyInstaller (to generate executable from Python script)
 
 
-
-\---
-
-Demo Gif
-
-
-
-<p align="center">
-
-&#x20; <img src="assets/demo.gif" width="600"/>
-
-</p>
-
-
-
-Image Used
-
-
-
-<p align="center">
-
-&#x20; <img src="assets/ScreenText.jpeg" width="600"/>
-
-</p>
-
-
-
-\---
+---
 
 
 
