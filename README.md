@@ -1,10 +1,9 @@
 # Smart-Text-Editor
 
-This project is a desktop text editor built with Qt (C++) that includes features such as file management, customizable UI themes, and OCR (Optical Character Recognition) to extract text from images using: Python and Tesseract. aaa
+This project is a desktop text editor built with Qt (C++) that includes features such as file management, customizable UI themes, and OCR (Optical Character Recognition) to extract text from images using Python and Tesseract.
 
 
-
-Initially I decided to developed it to simplify my student life by allowing me to convert whiteboard photos into editable text for homework and study purposes.
+Initially I decided to developed it to simplify my student life by allowing me to convert whiteboard photos into editable text for homework and study purposes. aaa
 
 
 
